@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Allow authenticated users to read/write their own user data
+    match /users/{uid} {
+      allow read, write: if request.auth.uid == uid;
+    }
+    
+    // Allow authenticated users to read/write their own narrations
+    match /narrations/{narrationId} {
+      allow read, write: if request.auth.uid == resource.data.userId;
+      allow create: if request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Block all other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
