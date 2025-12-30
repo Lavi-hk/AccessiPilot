@@ -1,0 +1,7 @@
+{
+  "name": "AccessiPilot",
+  "description": "An AI-powered accessibility engine that analyzes web content to provide real-time narration, alt-text, WCAG audits, and executable adjustment commands.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
