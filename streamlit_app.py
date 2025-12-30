@@ -6,7 +6,7 @@ import requests
 from PIL import Image
 import io
 import os
-
+from dotenv import load_dotenv
 import json
 from datetime import datetime
 
